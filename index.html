@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UniBoost | Academic & Digital Services</title>
+    <meta
+      name="description"
+      content="Premium academic and digital services for students and professionals."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">Uni<span class="highlight">Boost</span></div>
+      <a href="#services" class="nav-cta">Get Started</a>
+    </nav>
+
+    <header class="hero">
+      <div class="hero-content">
+        <h1 class="fade-in">
+          Elevate Your <span class="gradient-text">Academic Journey</span>
+        </h1>
+        <p class="fade-in delay-1">
+          Professional digital services tailored for students and researchers.
+          Fast, reliable, and direct.
+        </p>
+        <a href="#services" class="btn-primary fade-in delay-2"
+          >Choose Your Service</a
+        >
+      </div>
+      <div class="hero-shape"></div>
+    </header>
+
+    <section id="services" class="container">
+      <h2 class="section-title">Select a Service</h2>
+      <div class="services-grid" id="servicesGrid"></div>
+    </section>
+
+    <section id="orderFormSection" class="container hidden-section">
+      <div class="form-wrapper">
+        <div class="form-header">
+          <h3>
+            Customizing:
+            <span id="selectedServiceName" class="highlight"></span>
+          </h3>
+          <button id="closeForm" class="close-btn">
+            <i class="fa-solid fa-times"></i>
+          </button>
+        </div>
+
+        <form id="boostForm">
+          <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+          </div>
+
+          <div class="form-step active" data-step="1">
+            <h4>Step 1: Contact Details</h4>
+            <div class="input-group">
+              <label>Full Name</label>
+              <input
+                type="text"
+                id="userName"
+                placeholder="John Doe"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <label>University / Organization</label>
+              <input
+                type="text"
+                id="userOrg"
+                placeholder="e.g. University of London"
+                required
+              />
+            </div>
+            <button type="button" class="btn-next">
+              Next <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+
+          <div class="form-step" data-step="2">
+            <h4>Step 2: Project Requirements</h4>
+            <div id="dynamicFields"></div>
+
+            <div class="btn-row">
+              <button type="button" class="btn-back">Back</button>
+              <button type="submit" class="btn-whatsapp">
+                <i class="fa-brands fa-whatsapp"></i> Send via WhatsApp
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 UniBoost. Boosting Academic Excellence.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
