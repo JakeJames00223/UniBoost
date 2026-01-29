@@ -6,6 +6,7 @@
   --bg-blue: #1e3a8a; /* Royal Blue */
   --text-light: #f8fafc; /* White/Silver text */
   --text-dark: #1e293b; /* Dark text for inside cards */
+  --logo: #ff8330;
 
   --card-bg: #ffffff;
   --glass-nav: rgba(15, 23, 42, 0.85);
@@ -60,7 +61,7 @@ body::after {
 
 /* Typography & Utilities */
 .highlight {
-  color: var(--accent);
+  color: var(--logo);
 }
 .gradient-text {
   background: linear-gradient(to right, #60a5fa, #22d3ee);
