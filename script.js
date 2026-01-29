@@ -6,7 +6,7 @@ const WHATSAPP_NUMBER = "213698308898"; // Replace with your actual WhatsApp num
 const services = [
   {
     id: "cv",
-    title: "CV & Resume Writing",
+    title: "CV and Resume Writing",
     icon: "fa-file-signature",
     desc: "ATS-optimized resumes tailored for internships and jobs.",
     fields: [
@@ -57,7 +57,7 @@ const services = [
   },
   {
     id: "research",
-    title: "Research & Thesis",
+    title: "Research and Thesis",
     icon: "fa-book-open",
     desc: "Assistance with editing, proofreading, and formatting.",
     fields: [
@@ -268,3 +268,53 @@ function sendToWhatsApp() {
   // Open WhatsApp
   window.open(url, "_blank");
 }
+// Typewriter Class
+class TypeWriter {
+  constructor(txtElement, words, wait = 3000) {
+    this.txtElement = txtElement;
+    this.words = words;
+    this.txt = "";
+    this.wordIndex = 0;
+    this.wait = parseInt(wait, 10);
+    this.type();
+    this.isDeleting = false;
+  }
+
+  type() {
+    const current = this.wordIndex % this.words.length;
+    const fullTxt = this.words[current];
+
+    if (this.isDeleting) {
+      this.txt = fullTxt.substring(0, this.txt.length - 1);
+    } else {
+      this.txt = fullTxt.substring(0, this.txt.length + 1);
+    }
+
+    this.txtElement.innerHTML = this.txt;
+
+    let typeSpeed = 100;
+
+    if (this.isDeleting) {
+      typeSpeed /= 2;
+    }
+
+    if (!this.isDeleting && this.txt === fullTxt) {
+      typeSpeed = this.wait;
+      this.isDeleting = true;
+    } else if (this.isDeleting && this.txt === "") {
+      this.isDeleting = false;
+      this.wordIndex++;
+      typeSpeed = 500;
+    }
+
+    setTimeout(() => this.type(), typeSpeed);
+  }
+}
+
+// Init On DOM Load
+document.addEventListener("DOMContentLoaded", () => {
+  const txtElement = document.querySelector(".txt-type");
+  const words = JSON.parse(txtElement.getAttribute("data-words"));
+  const wait = txtElement.getAttribute("data-wait");
+  new TypeWriter(txtElement, words, wait);
+});
